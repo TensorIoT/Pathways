@@ -1,5 +1,4 @@
-from time import sleep
-import boto3, json, os, uuid, logging, random, string
+import boto3, json, os
 
 dynamodb = boto3.resource('dynamodb', region_name=os.environ['REGION'])
 table = dynamodb.Table(os.environ['TABLE_NAME'])
@@ -24,10 +23,10 @@ def lambda_handler(event, context):
     if 'ServiceName' not in inputBody:
         return constructResponse(400, "ServiceName object not found")
 
-    if inputBody['Operation'] not in ['NEW', 'GET', 'DELETE'] :
+    if inputBody['Operation'] not in ['NEW', 'GET', 'DELETE', 'UPDATE']:
         return constructResponse(400, "Operation "+inputBody['Operation']+" Not permitted")
 
-    if inputBody['Operation'] == 'NEW':
+    if inputBody['Operation'] in ['NEW', 'UPDATE']:
         if 'ServiceURL' not in inputBody:
             return constructResponse(400, "Service URL not found")
         try:
@@ -37,7 +36,7 @@ def lambda_handler(event, context):
                     'url': inputBody['ServiceURL']
                 }
             )
-            return constructResponse(200, "Service Created")
+            return constructResponse(200, 'Service Created' if inputBody['Operation'] == 'NEW' else 'Service Updated')
         except Exception as e:
             return constructResponse(400, e)
 
