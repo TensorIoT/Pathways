@@ -9,8 +9,7 @@ There are 4 operations available to manage your library of services:
 ## Table of Contents
 * **[What is AWS Serverless Application Repository?](#what-is-aws-serverless-application-repository)**
 * **[Use Cases](#use-cases)**
-* **[Setup](#setup)**
-* **[Usage](#use)**
+* **[Usage](#usage)**
 * **[License](#license)**
 
 ## What is AWS Serverless Application Repository?
@@ -27,7 +26,8 @@ applications you deploy.
 1. Manage & discover the microservice endpoints for your application.
 1. Provide an abstraction for addresses in your microservice architecture.
 
-## Setup:
+## Usage
+### Invoke the API:
 In your AWS console or CLI, discover your newly created API ARN resource name for your API URL prefix.
 Or, assign your VPC subnet hostname or private DNS name as the endpoint.
 ##### CLI Use:
@@ -40,7 +40,6 @@ As mentioned, you could use the service as a name registry to abstract your micr
 See documentation on generating an API SDK for programmatic access: http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-generate-sdk.html  
 And an example of Javascript SDK usage: http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-generate-sdk-javascript.html
 
-## Usage
 ### Input Format for New service	
 ```
 {
