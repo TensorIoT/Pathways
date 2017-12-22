@@ -1,5 +1,7 @@
 # Pathways
 This service provides a simple service-discovery solution for microservices.  
+![Pathways](https://s3.amazonaws.com/tensorimgs/public/Pathways.png)
+
 There are 4 operations available to manage your library of services:
 - NEW
 - GET 
